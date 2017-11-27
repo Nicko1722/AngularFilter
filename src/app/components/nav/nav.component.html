@@ -1,0 +1,294 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo right">Logo</a>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li>
+        <a (click)="onClickMember('Member')" class="waves-effect waves-light btn" >
+          <i class="material-icons left">face</i>
+          MEMBER
+        </a>
+      </li>
+      <li>
+        <a (click)="onClickOffice('Office')"
+          class="waves-effect waves-light btn">
+          <i class="material-icons left">location_city</i>
+          OFFICE
+        </a>
+      </li>
+      <li >
+        <a (click)="onClickProperty('Property')"
+           class="waves-effect waves-light btn ">
+          <i class="material-icons left">home</i>
+            PROPERTY
+        </a>
+      </li>
+      <li>
+
+        <div class="row row-input">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="{{ input_placeholder }}"
+                       type="text"
+                       #searchInputwrite
+                       id="search-inputwrite"
+                       (keyup)="inputWrite(searchInputwrite.value)">
+
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container">
+
+  <div class="col s12 pull-back" *ngIf="members != undefined && members.length > 0">
+    <div class="col s12 ">
+      <div class="maininput">
+        <div class="maininput-1">
+          <div class="maininput-2">
+            <div>
+                  <span tabindex="0" class="mainspan">
+                    <div>
+                      <div class="mainspan-1">
+                        <div>
+                          Member
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+            </div>
+          </div>
+          <div class="input-item">
+            <ng-container *ngFor="let item of members">
+              <div>
+                    <span tabindex="0" class="span-item">
+                      <div>
+                        <div class="span-item-1">
+                          <div>
+                            {{ item.FullName }}
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col s12 pull-back" *ngIf="offices != undefined && offices.length > 0">
+    <div class="col s12 ">
+      <div class="maininput">
+        <div class="maininput-1">
+          <div class="maininput-2">
+            <div>
+                  <span tabindex="0" class="mainspan">
+                    <div>
+                      <div class="mainspan-1">
+                        <div>
+                          Office
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+            </div>
+          </div>
+          <div class="input-item">
+            <ng-container *ngFor="let office of offices">
+              <div>
+                    <span tabindex="0" class="span-item">
+                      <div>
+                        <div class="span-item-1">
+                          <div>
+                            {{ office.OfficeName }}
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col s9" *ngIf="responseProperty">
+
+    <div class="col s12 ">
+
+
+      <div class="maininput">
+        <div class="maininput-1">
+          <div class="maininput-2">
+            <div>
+                  <span tabindex="0" class="mainspan">
+                    <div>
+                      <div class="mainspan-1">
+                        <div>
+                          State
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+            </div>
+          </div>
+          <div class="input-item">
+            <ng-container *ngFor="let itemState of propertyState">
+              <div>
+                    <span tabindex="0" class="span-item">
+                      <div>
+                        <div class="span-item-1">
+                          <div>
+                            {{ itemState.text }}
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="maininput-1">
+          <div class="maininput-2">
+            <div>
+                  <span tabindex="0" class="mainspan">
+                    <div>
+                      <div class="mainspan-1">
+                        <div>
+                          City
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+            </div>
+          </div>
+          <div class="input-item">
+            <ng-container *ngFor="let itemCity of propertyCity">
+              <div>
+                    <span tabindex="0" class="span-item">
+                      <div>
+                        <div class="span-item-1">
+                          <div>
+                            {{ itemCity.text }}
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+
+        <div class="maininput-1">
+          <div class="maininput-2">
+            <div>
+                  <span tabindex="0" class="mainspan">
+                    <div>
+                      <div class="mainspan-1">
+                        <div>
+                          SchoolDist
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+            </div>
+          </div>
+          <div class="input-item">
+            <ng-container *ngFor="let itemSchoolDist of propertySchoolDist">
+              <div>
+                    <span tabindex="0" class="span-item">
+                      <div>
+                        <div class="span-item-1">
+                          <div>
+                            {{ itemSchoolDist.text }}
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+
+        <div class="maininput-1">
+          <div class="maininput-2">
+            <div>
+                  <span tabindex="0" class="mainspan">
+                    <div>
+                      <div class="mainspan-1">
+                        <div>
+                          HighSchool
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+            </div>
+          </div>
+          <div class="input-item">
+            <ng-container *ngFor="let itemHighSchool of propertyHighSchool">
+              <div>
+                    <span tabindex="0" class="span-item">
+                      <div>
+                        <div class="span-item-1">
+                          <div>
+                            {{ itemHighSchool.text }}
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="maininput-1">
+          <div class="maininput-2">
+            <div>
+                  <span tabindex="0" class="mainspan">
+                    <div>
+                      <div class="mainspan-1">
+                        <div>
+                          Address
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+            </div>
+          </div>
+          <div class="input-item">
+            <ng-container *ngFor="let itemAddress of propertyAddress">
+              <div>
+                    <span tabindex="0" class="span-item">
+                      <div>
+                        <div class="span-item-1">
+                          <div>
+                            {{ itemAddress.text }}
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
